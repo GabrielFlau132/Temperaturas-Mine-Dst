@@ -34,10 +34,10 @@ function FparaC() {
 
 function atualizarFundo(temperaturaC) {
     if (temperaturaC <= 0) {
-        document.body.style.backgroundImage = 'url("background/gelado.png")';
+        document.body.style.backgroundImage = 'url("background/frost biome terraria.png")';
     } else if (temperaturaC >= 100) {
-        document.body.style.backgroundImage = 'url("background/quente.png")';
+        document.body.style.backgroundImage = 'url("background/hell biome terraria.png")';
     } else {
-        document.body.style.backgroundImage = 'url("background/morno.png")';
+        document.body.style.backgroundImage = 'url("background/jungle biome terraria.png")';
     }
 }

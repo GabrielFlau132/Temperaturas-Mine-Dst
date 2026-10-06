@@ -2,10 +2,24 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Paleta extraída do HUD do Terraria (terraria interfaces.png) */
+    --slot-azul: #40419a;
+    --slot-azul-hover: #5557c4;
+    --slot-borda: #1b1331;
+    --slot-brilho: #6460c1;
+    --loja-oliva: #6d7d42;
+    --loja-oliva-hover: #86995a;
+    --loja-borda: #495332;
+    --painel: rgba(35, 36, 90, 0.88);
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: url("background/morno.png") center center / cover no-repeat fixed;
+    font-family: "Andy Bold", "Andy", "Segoe Print", "Chalkboard SE", "Comic Sans MS", cursive, sans-serif;
+    color: #fff;
+    background: url("background/jungle biome terraria.png") center center / cover no-repeat fixed;
+    image-rendering: pixelated;
 
     display: flex;
     justify-content: center;
@@ -14,27 +28,64 @@ body {
     transition: background-image 0.5s ease;
 }
 
+/* Texto branco com contorno preto, como no jogo */
+h1,
+input,
+button,
+#resultado {
+    text-shadow:
+        -2px 0 #000, 2px 0 #000, 0 -2px #000, 0 2px #000,
+        -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000;
+}
+
 .container {
-    background: white;
-    padding: 30px;
-    width: 350px;
+    background: var(--painel);
+    padding: 24px;
+    width: 380px;
     text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--slot-borda);
+    border-radius: 8px;
+    box-shadow:
+        inset 0 0 0 2px var(--slot-brilho),
+        0 6px 24px rgba(0, 0, 0, 0.55);
 }
 
 h1 {
     font-size: 24px;
-    margin-bottom: 25px;
+    font-weight: bold;
+    margin: 0 0 20px;
+    letter-spacing: 1px;
 }
 
+/* Campo de entrada = slot de inventário azul */
 input {
     width: 100%;
     padding: 12px;
-    font-size: 18px;
-    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    background: var(--slot-azul);
+    border: 3px solid var(--slot-borda);
     border-radius: 6px;
-    margin-bottom: 15px;
+    box-shadow: inset 0 0 0 2px var(--slot-brilho);
+    margin-bottom: 14px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #a9aae6;
+    text-shadow: 1px 1px #000;
+}
+
+input:hover,
+input:focus {
+    background: var(--slot-azul-hover);
+}
+
+input:focus {
+    border-color: #f5d742;
 }
 
 .botoes {
@@ -42,23 +93,39 @@ input {
     gap: 10px;
 }
 
+/* Botões = slots da loja (verde-oliva) */
 button {
     flex: 1;
     padding: 12px;
-    border: none;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: var(--loja-oliva);
+    border: 3px solid var(--loja-borda);
     border-radius: 6px;
-    background: #007bff;
-    color: white;
-    font-size: 16px;
+    box-shadow: inset 0 0 0 2px #7f9150;
     cursor: pointer;
 }
 
 button:hover {
-    background: #0056b3;
+    background: var(--loja-oliva-hover);
+    border-color: #f5d742;
 }
 
+button:active {
+    transform: translateY(2px);
+}
+
+/* Resultado = slot largo azul */
 #resultado {
-    margin-top: 20px;
+    margin-top: 16px;
+    min-height: 58px;
+    padding: 14px 10px;
     font-size: 20px;
     font-weight: bold;
+    background: var(--slot-azul);
+    border: 3px solid var(--slot-borda);
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 2px var(--slot-brilho);
 }
