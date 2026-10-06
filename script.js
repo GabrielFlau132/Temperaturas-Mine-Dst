@@ -34,10 +34,20 @@ function FparaC() {
 
 function atualizarFundo(temperaturaC) {
     if (temperaturaC <= 0) {
-        document.body.style.backgroundImage = 'url("background/gelado.png")';
+        document.body.style.backgroundImage = 'url("sprites/gelado.png")';
     } else if (temperaturaC >= 100) {
-        document.body.style.backgroundImage = 'url("background/quente.png")';
+        document.body.style.backgroundImage = 'url("sprites/quente.png")';
     } else {
-        document.body.style.backgroundImage = 'url("background/morno.png")';
+        document.body.style.backgroundImage = 'url("sprites/morno.png")';
+    }
+
+    const imgAWA = document.getElementById("Awa");
+
+    if (temperaturaC <= 0) {
+        imgAWA.src = "sprites/gelo.png";
+    } else if (temperaturaC >= 100) {
+        imgAWA.src = "sprites/vapor.png";
+    } else {
+        imgAWA.src = "sprites/agua.png";
     }
 }
